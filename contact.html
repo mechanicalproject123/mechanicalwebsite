@@ -264,47 +264,76 @@
                         <div class="contact-form">
                             <form class="contact-validation-active" name="contact-form-s2">
                                 <div class="half-col">
-                                    <input type="text" name="name" id="name" class="form-control" placeholder="Your Name">
+                                    <input type="text" name="Name" id="name" class="form-control" placeholder="Your Name">
                                 </div>
                                 <div class="half-col">
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="Your Email">
+                                    <input type="text" name="Company Name" id="company-name" class="form-control" placeholder="Company Name">
                                 </div>
                                 <div class="half-col">
-                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone">
+                                    <input type="email" name="Company Email" id="company-email" class="form-control" placeholder="Company Email">
                                 </div>
                                 <div class="half-col">
-                                    <input type="text" name="company" id="company-email" class="form-control" placeholder="Company Email">
+                                    <input type="text" name="Phone Number" id="phone" class="form-control" placeholder="Your Phone (Optional)">
                                 </div>
                                 <div>
-                                    <input type="text" name="address" id="address" class="form-control" placeholder="Address">
+                                    <input type="text" name="Company Address" id="address" class="form-control" placeholder="Company Address (Optional)">
                                 </div>
                                 <div>
                                    
                                     
-                                    <textarea class="form-control" name="note"  id="note" placeholder="Description..."></textarea>
+                                    <textarea class="form-control" name="Note"  id="note" placeholder="Description (Optional)"></textarea>
                                 </div>
                                 <div class="submit-btn-wrapper">
-                                    <button type="submit" class="theme-btn-s3">Submit</button>
+                                    <button type="submit" class="theme-btn-s3" id="submit">Submit</button>
                                     <!-- <div id="loader">
                                         <i class="ti-reload"></i>
                                     </div> -->
                                 </div>
                                 <div class="clearfix error-handling-messages">
-                                    <div id="success">Thank you</div>
+                                    <div id="success">Thank you! We will get back soon</div>
                                     <div id="error"> Error occurred while sending email. Please try again later. </div>
                                 </div>
                             </form>
                             <script>
+                                const name_ip=document.getElementById("name");
+                                const company_name_ip=document.getElementById("company-name");
+                                const company_email_ip=document.getElementById("company-email");
+                                var all_good=true;
+                                function display_error(error){
+                                    document.getElementById("error").innerHTML= `Please Fill ${error} correctly`
+                                    document.getElementById("error").style.display="block";
+
+                                }
+                                function check(ele,ele_name){
+                                    if(ele.value==""){
+                                        display_error(ele_name)
+                                        all_good=false;
+                                    }
+                                     
+                                }
                                 const scriptURL ="https://script.google.com/macros/s/AKfycbzpmyVnKOiYJvfEYA3ZphXsRLAl5dxcnZW4ttv_XwKk_IVnSENdYRINGLyEVhD0cu_N/exec"
                                 const form = document.forms['contact-form-s2']
-                                
-                                form.addEventListener('submit', e => {
-                                  e.preventDefault()
-                                  console.log(form)
+                                function submitData(e){
+
                                   fetch(scriptURL, { method: 'POST', body: new FormData(form),mode: 'no-cors'})
                                     .then(response => console.log(response))
-                                    // .then(form.reset())
+                                    .then(form.reset())
+                                    .then(document.getElementById("success").style.display="block")
                                     .catch(error => console.error('Error!', error.message))
+                                    document.getElementById("error").style.display="none";
+                                }
+                                form.addEventListener('submit', e => {
+                                  e.preventDefault()
+                                  document.getElementById("submit").innerHTML=="..."
+                                  check(name_ip,"Name")
+                                  check(company_name_ip,"Company Name")
+                                  check(company_email_ip,"Company Email")
+                                  if(all_good){
+                                      submitData(e)
+                                  }
+                                  all_good=true;
+
+
                                 })
                           
                               </script>
