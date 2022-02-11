@@ -262,7 +262,7 @@
                 <div class="row">
                     <div class="col col-lg-6">
                         <div class="contact-form">
-                            <form method="post" class="contact-validation-active" id="contact-form-s2">
+                            <form class="contact-validation-active" name="contact-form-s2">
                                 <div class="half-col">
                                     <input type="text" name="name" id="name" class="form-control" placeholder="Your Name">
                                 </div>
@@ -273,22 +273,41 @@
                                     <input type="text" name="phone" id="phone" class="form-control" placeholder="Your Phone">
                                 </div>
                                 <div class="half-col">
+                                    <input type="text" name="company" id="company-email" class="form-control" placeholder="Company Email">
+                                </div>
+                                <div>
                                     <input type="text" name="address" id="address" class="form-control" placeholder="Address">
                                 </div>
                                 <div>
+                                   
+                                    
                                     <textarea class="form-control" name="note"  id="note" placeholder="Description..."></textarea>
                                 </div>
                                 <div class="submit-btn-wrapper">
-                                    <button type="submit" class="theme-btn-s3">Appointment</button>
-                                    <div id="loader">
+                                    <button type="submit" class="theme-btn-s3">Submit</button>
+                                    <!-- <div id="loader">
                                         <i class="ti-reload"></i>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="clearfix error-handling-messages">
                                     <div id="success">Thank you</div>
                                     <div id="error"> Error occurred while sending email. Please try again later. </div>
                                 </div>
                             </form>
+                            <script>
+                                const scriptURL ="https://script.google.com/macros/s/AKfycbzpmyVnKOiYJvfEYA3ZphXsRLAl5dxcnZW4ttv_XwKk_IVnSENdYRINGLyEVhD0cu_N/exec"
+                                const form = document.forms['contact-form-s2']
+                                
+                                form.addEventListener('submit', e => {
+                                  e.preventDefault()
+                                  console.log(form)
+                                  fetch(scriptURL, { method: 'POST', body: new FormData(form),mode: 'no-cors'})
+                                    .then(response => console.log(response))
+                                    // .then(form.reset())
+                                    .catch(error => console.error('Error!', error.message))
+                                })
+                          
+                              </script>
                         </div>
                     </div>
                     <div class="col col-lg-6">
