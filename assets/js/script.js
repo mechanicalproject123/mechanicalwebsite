@@ -374,11 +374,12 @@
     if ($(".partners-slider").length) {
         $(".partners-slider").owlCarousel({
             autoplay:true,
-            smartSpeed: 300,
+            smartSpeed: 500,
+            autoplaySpeed:500,
             margin: 30,
             loop:true,
             autoplayHoverPause:true,
-            dots: false,
+            dots: true,
             responsive: {
                 0 : {
                     items: 2
@@ -389,11 +390,11 @@
                 },
 
                 992 : {
-                    items: 4
+                    items: 3
                 },
 
                 1200 : {
-                    items: 5
+                    items: 3
                 }
             }
         });

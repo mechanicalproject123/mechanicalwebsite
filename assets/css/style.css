@@ -144,11 +144,11 @@ URL:            s3valves.in
 html {
   font-size: 15px;
 }
-#all-product-list  {
+#all-product-list, #download-brochure-btn  {
   display: none !important;
 }
-@media (max-width: 500px) {
-  #all-product-list  {
+@media (max-width: 992px) {
+  #all-product-list, #download-brochure-btn  {
     display: block !important;
 }
 }
@@ -235,7 +235,7 @@ b, strong {
 }
 
 .section-padding {
-  padding: 100px 0;
+  padding: 50px 0;
 }
 
 @media (max-width: 991px) {
@@ -3232,7 +3232,7 @@ b, strong {
 --------------------------------------------------------------*/
 .features-section {
   margin-top: -70px;
-  padding-bottom: 100px;
+  padding-bottom: 70px;
   position: relative;
   z-index: 5;
 }
@@ -8072,4 +8072,24 @@ b, strong {
   color: #ffbd34;
 }
 
+.partners-slider h5 {
+  font-size: 1.5rem;
+  color: #06163a
+}
+
+.partners-slider a {
+  /* font-size: 1.5rem; */
+  color: #06163a
+
+}
+
+.partners-slider .details {
+  padding-left: 1.2rem;
+  padding-bottom: 1rem;
+
+}
+
+
+
 /*# sourceMappingURL=style.css.map */
+
