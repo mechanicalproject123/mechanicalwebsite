@@ -144,6 +144,14 @@ URL:            s3valves.in
 html {
   font-size: 15px;
 }
+#all-product-list  {
+  display: none !important;
+}
+@media (max-width: 500px) {
+  #all-product-list  {
+    display: block !important;
+}
+}
 
 body {
   font-family: "Rubik", sans-serif;
