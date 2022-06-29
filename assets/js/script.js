@@ -376,21 +376,21 @@
             autoplay:true,
             smartSpeed: 500,
             autoplaySpeed:500,
-            margin: 30,
+            margin: 15,
             loop:true,
             autoplayHoverPause:true,
             dots: true,
             responsive: {
                 0 : {
-                    items: 2
+                    items: 1
                 },
 
                 550 : {
-                    items: 3
+                    items: 2
                 },
 
                 992 : {
-                    items: 3
+                    items: 2
                 },
 
                 1200 : {
